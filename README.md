@@ -2,6 +2,7 @@
 
 A premium, modern web client to search, browse by category, and read the latest headlines from Google News.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F14-Nishanth%2Fgoogle-news-web)
 [![Deploy to Render](https://render.com/images/deploy-to-render.svg)](https://render.com/deploy?repo=https://github.com/14-Nishanth/google-news-web)
 
 ## Features
@@ -16,12 +17,16 @@ A premium, modern web client to search, browse by category, and read the latest 
 
 To host this app online for free and access it on your mobile phone:
 
+### Option A: Vercel (100% Free - No Credit Card Required)
 1. Go to your repository on GitHub.
-2. Click the **Deploy to Render** button above.
-3. Sign in to Render with GitHub, and click **Connect**.
-4. Click **Apply** on the Blueprint configuration page.
+2. Click the **Deploy with Vercel** button above.
+3. Sign in to Vercel with GitHub, and follow the simple on-screen steps.
+4. Click **Deploy**. Vercel will host the app and give you a public URL (e.g. `https://google-news-web-xxxx.vercel.app`) to load on your mobile!
 
-Within a few minutes, Render will build and host your app on a secure HTTPS URL (e.g. `https://google-news-web-xxxx.onrender.com`) that you can bookmark on your mobile phone!
+### Option B: Render (Free - Might require Card verification)
+1. Click the **Deploy to Render** button above.
+2. Sign in with GitHub and click **Apply** on the blueprint page.
+3. Render will deploy it automatically.
 
 ---
 
