@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A premium web client for browsing, searching, and filtering real-time headlines from Google News.">
+  <title>GNews Web | Modern Google News Client</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <!-- Logo Section -->
+      <a href="/" class="app-logo" id="app-logo-link">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path>
+          <path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"></path>
+        </svg>
+        <span class="logo-text">GNews <span class="logo-accent">Web</span></span>
+      </a>
+
+      <!-- Search Section -->
+      <form class="search-bar" id="search-form">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search topics, companies, or events..." aria-label="Search articles" required autocomplete="off">
+        </div>
+        <button type="submit" id="search-submit-btn" class="btn btn-primary">Search</button>
+      </form>
+
+      <!-- Actions Section -->
+      <div class="header-actions">
+        <!-- Settings Badge & Button -->
+        <button id="settings-btn" class="btn btn-secondary" aria-label="Open Settings">
+          <svg class="action-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"></path>
+          </svg>
+          <span class="settings-label">Settings</span>
+          <span id="region-lang-badge" class="badge">US - en</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle light/dark theme">
+          <!-- Moon Icon (Dark Mode active / click to go Light) -->
+          <svg class="theme-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+          </svg>
+          <!-- Sun Icon (Light Mode active / click to go Dark) -->
+          <svg class="theme-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Categories Banner -->
+  <nav class="categories-nav" aria-label="News categories">
+    <div class="nav-container" id="category-nav">
+      <button class="nav-btn active" data-category="headlines" id="cat-headlines">📰 Headlines</button>
+      <button class="nav-btn" data-category="world" id="cat-world">🌎 World</button>
+      <button class="nav-btn" data-category="nation" id="cat-nation">🏛️ Nation</button>
+      <button class="nav-btn" data-category="business" id="cat-business">💼 Business</button>
+      <button class="nav-btn" data-category="technology" id="cat-technology">⚡ Technology</button>
+      <button class="nav-btn" data-category="science" id="cat-science">🧪 Science</button>
+      <button class="nav-btn" data-category="sports" id="cat-sports">⚽ Sports</button>
+      <button class="nav-btn" data-category="health" id="cat-health">🏥 Health</button>
+      <button class="nav-btn" data-category="entertainment" id="cat-entertainment">🎬 Entertainment</button>
+    </div>
+  </nav>
+
+  <!-- Main Grid Content -->
+  <main class="app-main">
+    <!-- Active Filter/Search Header -->
+    <div class="main-info">
+      <h1 id="news-section-title" class="section-title">Top Headlines</h1>
+      <p id="news-section-subtitle" class="section-subtitle">Showing latest global news stories</p>
+    </div>
+
+    <!-- Error/Alert Display -->
+    <div id="error-message" class="alert-box error-box hidden">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <h3 class="alert-title">Oops! Something went wrong</h3>
+        <p class="alert-desc" id="error-text">Failed to fetch the news articles. Please verify your internet connection or settings.</p>
+        <button id="retry-btn" class="btn btn-primary btn-sm">Try Again</button>
+      </div>
+    </div>
+
+    <!-- Skeleton Loading Grid -->
+    <div id="skeleton-container" class="news-grid hidden">
+      <!-- 6 skeleton cards -->
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="sk-meta"></div>
+        <div class="sk-title"></div>
+        <div class="sk-title half"></div>
+        <div class="sk-desc"></div>
+        <div class="sk-desc short"></div>
+      </div>
+    </div>
+
+    <!-- Dynamic News Grid -->
+    <div id="news-container" class="news-grid">
+      <!-- Dynamic news cards will load here -->
+    </div>
+  </main>
+
+  <!-- Settings Modal Dialog -->
+  <div id="settings-modal" class="modal-wrapper hidden">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">⚙️ App Settings</h2>
+        <button id="modal-close-btn" class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="settings-form" class="modal-form">
+        <!-- Region Setting -->
+        <div class="form-group">
+          <label for="settings-region" class="form-label">Country/Region Feed</label>
+          <select id="settings-region" class="form-select">
+            <option value="US">United States (US)</option>
+            <option value="GB">United Kingdom (GB)</option>
+            <option value="IN">India (IN)</option>
+            <option value="CA">Canada (CA)</option>
+            <option value="AU">Australia (AU)</option>
+            <option value="ZA">South Africa (ZA)</option>
+            <option value="IE">Ireland (IE)</option>
+            <option value="NZ">New Zealand (NZ)</option>
+            <option value="FR">France (FR)</option>
+            <option value="DE">Germany (DE)</option>
+            <option value="JP">Japan (JP)</option>
+            <option value="BR">Brazil (BR)</option>
+          </select>
+          <span class="form-helper">Google News filters localized news stories based on region.</span>
+        </div>
+
+        <!-- Language Setting -->
+        <div class="form-group">
+          <label for="settings-language" class="form-label">Feed Language</label>
+          <select id="settings-language" class="form-select">
+            <option value="en">English (en)</option>
+            <option value="es">Spanish (es)</option>
+            <option value="fr">French (fr)</option>
+            <option value="de">German (de)</option>
+            <option value="hi">Hindi (hi)</option>
+            <option value="pt">Portuguese (pt)</option>
+            <option value="ja">Japanese (ja)</option>
+          </select>
+          <span class="form-helper">Language of the fetched headlines.</span>
+        </div>
+
+        <!-- Limit Setting -->
+        <div class="form-group">
+          <label for="settings-limit" class="form-label">Max Articles to Load</label>
+          <input type="number" id="settings-limit" class="form-input" min="1" max="100" value="15" required>
+          <span class="form-helper">Choose between 1 and 100 articles per view.</span>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="settings-cancel-btn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" id="settings-save-btn" class="btn btn-primary">Save Settings</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 GNews Web. Powered by Google News RSS feed API. Created for demonstration purposes.</p>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

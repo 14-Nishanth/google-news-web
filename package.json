@@ -1,0 +1,15 @@
+{
+  "name": "google-news-web",
+  "version": "1.0.0",
+  "description": "A premium web application interface for Google News",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "rss-parser": "^3.13.0"
+  }
+}
